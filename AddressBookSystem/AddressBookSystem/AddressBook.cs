@@ -12,6 +12,7 @@ namespace AddressBookSystem
         List<Contact> contacts = new List<Contact>();
         public void CreateContact()
         {
+            Contact contact = new Contact();
             Console.WriteLine("Enter your first name :");
             contact.FirstName = Console.ReadLine();
             Console.WriteLine("Enter your last name :");
@@ -28,12 +29,18 @@ namespace AddressBookSystem
             contact.PhoneNumber = Console.ReadLine();
             Console.WriteLine("Enter your email :");
             contact.Email = Console.ReadLine();
+            
             contacts.Add(contact);
         }
         public void Display()
         {
-            Console.WriteLine("Contact Details :\n"+"First Name : "+contact.FirstName+"\nLast Name : "+contact.LastName+"\nAddress : "+contact.Address+"\nCity : "+contact.City+"\nState : "+contact.State+"\nZipCode : "+contact.Zip+"\nPhone Number : "+contact.PhoneNumber+"\nEmail : "+contact.Email);
-            Console.WriteLine("\nThanking You !!!");
+            Console.WriteLine("-------------------------------------------------");
+            foreach(var contact in contacts)
+            {
+                Console.WriteLine("---------------------------------------------------");
+                Console.WriteLine("Contact Details :\n" + "First Name : " + contact.FirstName + "\nLast Name : " + contact.LastName + "\nAddress : " + contact.Address + "\nCity : " + contact.City + "\nState : " + contact.State + "\nZipCode : " + contact.Zip + "\nPhone Number : " + contact.PhoneNumber + "\nEmail : " + contact.Email);
+            }
+            Console.WriteLine("\nThanking You For Adding Contact !!!");
         }
         public void EditContact(string name)
         {
@@ -41,7 +48,7 @@ namespace AddressBookSystem
             {
                 if(contact.FirstName.Equals(name))
                 {
- Console.WriteLine("Choose What to Edit \n1.First Name \n2.Last Name \n3.Address \n4.City \n5.State \n6.Email \n7.Zip \n8.Phone Number");
+                    Console.WriteLine("Choose What To Edit : \n1.First Name \n2.Last Name \n3.Address \n4.City \n5.State \n6.Email \n7.Zip \n8.Phone Number");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
@@ -79,6 +86,20 @@ namespace AddressBookSystem
                             break;
                     }
                 }
+            }
+        }
+        public void DeleteContact()
+        {
+            Console.WriteLine("Enter First Name To Delete Contact : ");
+            string name = Console.ReadLine();
+            Contact deletecontact = new Contact();
+            foreach(var contact in contacts.ToList())
+            {
+                if(contact.FirstName.Equals(name))
+                {
+                    deletecontact = contact;
+                }
+                contacts.Remove(deletecontact);
             }
         }
     }
