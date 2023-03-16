@@ -10,6 +10,7 @@ namespace AddressBookSystem
     {
         //Contact contact = new Contact();
         List<Contact> contacts = new List<Contact>();
+        public Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
         public void CreateContact()
         {
             Contact contact = new Contact();
@@ -101,6 +102,16 @@ namespace AddressBookSystem
                 }
                 contacts.Remove(deletecontact);
             }
+        }
+        public void AddAddressBook(string bookName)
+        {
+            AddressBook addressBook = new AddressBook();
+            addressbookDictionary.Add(bookName, addressBook);
+            Console.WriteLine("AddressBook Created.");
+        }
+        public Dictionary<string, AddressBook> GetAddressBook()
+        {
+            return addressbookDictionary;
         }
     }
 }
