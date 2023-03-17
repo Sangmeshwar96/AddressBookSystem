@@ -26,7 +26,15 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\nSelect 1:To Create Contact"+ "\nSelect 2:To Display Contact"+"\nSelect 3:To Edit Contact"+"\nSelect 4:To Delete Contact"+ "\nSelect 6:To Create New AddressBook "+"\nSelect 7:To Select Addressbook From Existing AddressBook"+"\nSelect 8:To Exit Application\n");
+                Console.WriteLine("Select from below : "
+                    +"\n1:Create Contact"
+                    +"\n2:Display Contact"
+                    +"\n3:Edit Contact"
+                    +"\n4:Delete Contact"
+                    +"\n6:Create New AddressBook "
+                    +"\n7:Select Addressbook From Existing AddressBook"
+                    +"\n8:Search by city"
+                    +"\n9:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -78,7 +86,7 @@ namespace AddressBookSystem
                             }
                         }
                         break;
-                    case 8:
+                    case 9:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;

@@ -11,6 +11,7 @@ namespace AddressBookSystem
         //Contact contact = new Contact();
         List<Contact> contacts = new List<Contact>();
         public Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
+        Dictionary<string, Contact> addressBookDictonary = new Dictionary<string, Contact>();
         public void CreateContact()
         {
             Contact contact = new Contact();
@@ -30,8 +31,16 @@ namespace AddressBookSystem
             contact.PhoneNumber = Console.ReadLine();
             Console.WriteLine("Enter your email :");
             contact.Email = Console.ReadLine();
-            
-            contacts.Add(contact);
+            if (contacts.Contains(contact))
+            {
+                Console.WriteLine("This Person Contact is already in the AddressBook.");
+            }
+            else
+            {
+                contacts.Add(contact);
+                addressBookDictonary.Add(contact.FirstName, contact);
+                Console.WriteLine("This Contact is added Sucessfully.");
+            }
         }
         public void Display()
         {
@@ -112,6 +121,16 @@ namespace AddressBookSystem
         public Dictionary<string, AddressBook> GetAddressBook()
         {
             return addressbookDictionary;
+        }
+        public void SearchByCity()
+        {
+            Console.Write("Enter the City Name: ");
+            string CityName = Console.ReadLine();
+            Console.WriteLine("All the Contact of: " + CityName);
+            foreach (var contact in contacts.FindAll(x => x.City == CityName))
+            {
+                Console.WriteLine("Name: " + contact.FirstName + " " + contact.LastName);
+            }
         }
     }
 }
