@@ -153,5 +153,12 @@ namespace AddressBookSystem
                 Console.WriteLine("E mail: " + contact.Email);
             }
         }
+        public void CountByCity()
+        {
+            Console.Write("Enter the City Name: ");
+            string cityName = Console.ReadLine();
+            int count = addressBookByCity[cityName].Count(x => x.City == cityName);
+            Console.WriteLine("\nCity Name : " + cityName + ": No of Contact : " + count);
+        }
     }
 }
