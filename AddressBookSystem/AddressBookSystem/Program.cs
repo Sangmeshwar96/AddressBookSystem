@@ -86,6 +86,9 @@ namespace AddressBookSystem
                             }
                         }
                         break;
+                    case 8:
+                        addressbook.SearchByCity();
+                        break;
                     case 9:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
