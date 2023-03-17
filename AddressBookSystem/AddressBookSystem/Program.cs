@@ -37,7 +37,10 @@ namespace AddressBookSystem
                     +"\n9.View by City"
                     +"\n10.Count by City"
                     +"\n11.Sort By Name"
-                    +"\n12:To Exit Application\n");
+                    +"\n12.Sort By City"
+                    +"\n13.Sort By State"
+                    +"\n14.Sort By Zip"
+                    +"\n15:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -102,6 +105,15 @@ namespace AddressBookSystem
                         addressbook.SortAddressBookByFirstName();
                         break;
                     case 12:
+                        addressbook.SortAddressBookByCity();
+                        break;
+                    case 13:
+                        addressbook.SortAddressBookByState();
+                        break;
+                    case 14:
+                        addressbook.SortAddressBookByZip();
+                        break;
+                    case 15:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;
