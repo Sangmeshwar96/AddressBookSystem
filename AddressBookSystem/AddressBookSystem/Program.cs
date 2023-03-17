@@ -33,7 +33,8 @@ namespace AddressBookSystem
                     +"\n4:Delete Contact"
                     +"\n6:Create New AddressBook "
                     +"\n7:Select Addressbook From Existing AddressBook"
-                    +"\n8:Search by city"
+                    +"\n8:Search by City"
+                    +"\n9.View by City"
                     +"\n9:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -90,6 +91,9 @@ namespace AddressBookSystem
                         addressbook.SearchByCity();
                         break;
                     case 9:
+                        addressbook.ViewByCity();
+                        break;
+                    case 10:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;

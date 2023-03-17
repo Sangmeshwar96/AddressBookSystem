@@ -10,8 +10,10 @@ namespace AddressBookSystem
     {
         //Contact contact = new Contact();
         List<Contact> contacts = new List<Contact>();
-        public Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
+        Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
         Dictionary<string, Contact> addressBookDictonary = new Dictionary<string, Contact>();
+        Dictionary<string, List<Contact>> addressBookByCity = new Dictionary<string, List<Contact>>();
+
         public void CreateContact()
         {
             Contact contact = new Contact();
@@ -130,6 +132,25 @@ namespace AddressBookSystem
             foreach (var contact in contacts.FindAll(x => x.City == CityName))
             {
                 Console.WriteLine("Name: " + contact.FirstName + " " + contact.LastName);
+            }
+        }
+        public void ViewByCity()
+        {
+            Console.Write("Enter the City Name: ");
+            string cityName = Console.ReadLine();
+            Console.WriteLine("All the Contact details of: " + cityName);
+            List<Contact> contactByCity = contacts.FindAll(x => x.City == cityName);
+            addressBookByCity.Add(cityName, contactByCity);
+            foreach (var contact in contacts.FindAll(x => x.City == cityName))
+            {
+                Console.WriteLine("\nContact Details\n" + "\n" + "First Name: " + contact.FirstName);
+                Console.WriteLine("Last Name: " + contact.LastName);
+                Console.WriteLine("Address: " + contact.Address);
+                Console.WriteLine("City: " + contact.City);
+                Console.WriteLine("State: " + contact.State);
+                Console.WriteLine("Zip Code: " + contact.Zip);
+                Console.WriteLine("PhoneNumber: " + contact.PhoneNumber);
+                Console.WriteLine("E mail: " + contact.Email);
             }
         }
     }
