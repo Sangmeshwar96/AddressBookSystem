@@ -160,5 +160,19 @@ namespace AddressBookSystem
             int count = addressBookByCity[cityName].Count(x => x.City == cityName);
             Console.WriteLine("\nCity Name : " + cityName + ": No of Contact : " + count);
         }
+        public void SortAddressBookByFirstName()
+        {
+            foreach (var contact in addressBookDictonary.OrderBy(x => x.Value.FirstName))
+            {
+                Console.WriteLine("Last Name: " + contact.Value.FirstName);
+                Console.WriteLine("Last Name: " + contact.Value.LastName);
+                Console.WriteLine("Address: " + contact.Value.Address);
+                Console.WriteLine("City: " + contact.Value.City);
+                Console.WriteLine("State: " + contact.Value.State);
+                Console.WriteLine("Zip Code: " + contact.Value.Zip);
+                Console.WriteLine("PhoneNumber: " + contact.Value.PhoneNumber);
+                Console.WriteLine("E mail: " + contact.Value.Email);
+            }
+        }
     }
 }

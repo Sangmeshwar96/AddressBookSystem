@@ -36,7 +36,8 @@ namespace AddressBookSystem
                     +"\n8:Search by City"
                     +"\n9.View by City"
                     +"\n10.Count by City"
-                    +"\n9:To Exit Application\n");
+                    +"\n11.Sort By Name"
+                    +"\n12:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -98,6 +99,9 @@ namespace AddressBookSystem
                         addressbook.CountByCity();
                         break;
                     case 11:
+                        addressbook.SortAddressBookByFirstName();
+                        break;
+                    case 12:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;
