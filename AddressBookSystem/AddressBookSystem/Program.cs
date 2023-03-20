@@ -8,6 +8,7 @@ namespace AddressBookSystem
         {
             Console.WriteLine("---Welcome To Address Book Management System---");
             AddressBook addressbook = new AddressBook();
+            FileOperations fileOperations = new FileOperations();
             int choice;
             string bookName = "default";
             Console.WriteLine("Would You Like To \n1.Work on default AddressBook \n2.Create New AddressBook");
@@ -40,7 +41,9 @@ namespace AddressBookSystem
                     +"\n12.Sort By City"
                     +"\n13.Sort By State"
                     +"\n14.Sort By Zip"
-                    +"\n15:To Exit Application\n");
+                    +"\n15.Read Data From Text File"
+                    +"\n16.Write Data To Text File"
+                    +"\n17:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -113,7 +116,13 @@ namespace AddressBookSystem
                     case 14:
                         addressbook.SortAddressBookByZip();
                         break;
-                    case 15:
+                    case 15: 
+                        fileOperations.AddressBookFileReader();
+                        break;
+                    case 16:
+                        fileOperations.AddressBookFileWrite();
+                        break;
+                    case 17:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;
