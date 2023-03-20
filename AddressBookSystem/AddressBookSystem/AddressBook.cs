@@ -9,11 +9,10 @@ namespace AddressBookSystem
     public class AddressBook
     {
         //Contact contact = new Contact();
-        List<Contact> contacts = new List<Contact>();
-        Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
-        Dictionary<string, Contact> addressBookDictonary = new Dictionary<string, Contact>();
-        Dictionary<string, List<Contact>> addressBookByCity = new Dictionary<string, List<Contact>>();
-
+        public List<Contact> contacts = new List<Contact>();
+        public Dictionary<string, AddressBook> addressbookDictionary = new Dictionary<string, AddressBook>();
+        public Dictionary<string, Contact> addressBookDictonary = new Dictionary<string, Contact>();
+        public Dictionary<string, List<Contact>> addressBookByCity = new Dictionary<string, List<Contact>>();
         public void CreateContact()
         {
             Contact contact = new Contact();
@@ -191,6 +190,20 @@ namespace AddressBookSystem
         public void SortAddressBookByState()
         {
             foreach (var contact in addressBookDictonary.OrderBy(x => x.Value.State))
+            {
+                Console.WriteLine("Last Name: " + contact.Value.FirstName);
+                Console.WriteLine("Last Name: " + contact.Value.LastName);
+                Console.WriteLine("Address: " + contact.Value.Address);
+                Console.WriteLine("City: " + contact.Value.City);
+                Console.WriteLine("State: " + contact.Value.State);
+                Console.WriteLine("Zip Code: " + contact.Value.Zip);
+                Console.WriteLine("PhoneNumber: " + contact.Value.PhoneNumber);
+                Console.WriteLine("Email: " + contact.Value.Email);
+            }
+        }
+        public void SortAddressBookByZip()
+        {
+            foreach (var contact in addressBookDictonary.OrderBy(x => x.Value.Zip))
             {
                 Console.WriteLine("Last Name: " + contact.Value.FirstName);
                 Console.WriteLine("Last Name: " + contact.Value.LastName);
