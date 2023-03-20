@@ -11,5 +11,3 @@ Zip Code: 413512
 PhoneNumber: 9665679388
 E mail: Patil@gmail.com
 
-Contact Details
-
