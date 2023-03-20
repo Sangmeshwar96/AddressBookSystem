@@ -9,6 +9,7 @@ namespace AddressBookSystem
             Console.WriteLine("---Welcome To Address Book Management System---");
             AddressBook addressbook = new AddressBook();
             FileOperations fileOperations = new FileOperations();
+            CSVHandler csvHandler = new CSVHandler();
             int choice;
             string bookName = "default";
             Console.WriteLine("Would You Like To \n1.Work on default AddressBook \n2.Create New AddressBook");
@@ -43,7 +44,9 @@ namespace AddressBookSystem
                     +"\n14.Sort By Zip"
                     +"\n15.Read Data From Text File"
                     +"\n16.Write Data To Text File"
-                    +"\n17:To Exit Application\n");
+                    +"\n17.Read Data From CSV File"
+                    +"\n18.Write Data To CSV File"
+                    +"\n19:To Exit Application\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -123,6 +126,12 @@ namespace AddressBookSystem
                         fileOperations.AddressBookFileWrite();
                         break;
                     case 17:
+                        csvHandler.ReadFromCSVFile();
+                        break;
+                    case 18:
+                        csvHandler.WriteToCSVFile(addressbook.addressbookDictionary);
+                        break;
+                    case 19:
                         Console.WriteLine("\nThanking You !!!\nVisit Again !!!");
                         flag = false;
                         break;
